@@ -31,6 +31,7 @@ public class ControllerHit : MonoBehaviour {
 		if (!gameOver) 
 		{
 			score += Time.deltaTime;
+			changingColors.speed +=0.001f;
 		}
 	
 	}
