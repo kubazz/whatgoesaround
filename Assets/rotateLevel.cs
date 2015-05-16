@@ -7,6 +7,8 @@ public class rotateLevel : MonoBehaviour
 {
 	public float speed = 10.0f;
 	private float rotation = 0f;
+	AudioSource source;
+	AudioClip clip;
 
 	// Use this for initialization
 	void Start () {

@@ -24,11 +24,13 @@ public class Logo : MonoBehaviour {
 	void Update () {
 		if (finished) {
 			GetComponent<Image> ().color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+			Time.timeScale = 1.0f;
 			return;
 		}
 			
 		if (phase == 0) {
 			background.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+			Time.timeScale = 0.0f;
 			if (counter % 8 == 0) {
 				GetComponent<Image> ().sprite = logo [id];
 				id++;
