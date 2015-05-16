@@ -3,9 +3,11 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class ControllerHit : MonoBehaviour {
-	public float score;
+	public static float score;
 	public Text text;
 	public Image image;
+
+	public Image background;
 
 	private bool gameOver = false;
 	// Use this for initialization
@@ -23,11 +25,12 @@ public class ControllerHit : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.R)) 
 		{
 			Application.LoadLevel(Application.loadedLevel);
+
 		}
 
 		if (!gameOver) 
 		{
-			score += 0.05f;
+			score += Time.deltaTime;
 		}
 	
 	}
@@ -38,8 +41,9 @@ public class ControllerHit : MonoBehaviour {
 		{
 			Debug.Log("hit2");
 			//Application.LoadLevel(Application.loadedLevel);
-			image.enabled =true;
-			text.text = "Scoreeee " + score;
+			image.enabled = true;
+			background.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+			text.text = score.ToString("F0") + " seconds";
 			gameOver = true;
 		}
 		

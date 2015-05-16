@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class rotateLevel : MonoBehaviour 
 {
@@ -14,6 +15,11 @@ public class rotateLevel : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
+		if (float.Equals (speed, 0.0f) && CrossPlatformInputManager.GetButtonDown ("Jump") && Logo.finished == true) {
+			speed = 30.0f;
+			ControllerHit.score = 0.0f;
+		}
+
 		float whatever = speed * Time.deltaTime;
 		rotation += whatever;
 		Debug.Log (speed);
